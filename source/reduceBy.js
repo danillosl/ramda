@@ -1,9 +1,9 @@
-import _clone from "./internal/_clone";
-import _curryN from "./internal/_curryN";
-import _dispatchable from "./internal/_dispatchable";
-import _has from "./internal/_has";
-import _reduce from "./internal/_reduce";
-import _xreduceBy from "./internal/_xreduceBy";
+import _clone from './internal/_clone';
+import _curryN from './internal/_curryN';
+import _dispatchable from './internal/_dispatchable';
+import _has from './internal/_has';
+import _reduce from './internal/_reduce';
+import _xreduceBy from './internal/_xreduceBy';
 
 /**
  * Groups the elements of the list according to the result of calling
@@ -51,7 +51,7 @@ var reduceBy = _curryN(
   [],
   _dispatchable([], _xreduceBy, function reduceBy(valueFn, valueAcc, keyFn, list) {
     return _reduce(
-      function(acc, elt) {
+      function (acc, elt) {
         var key = keyFn(elt);
         acc[key] = valueFn(_has(key, acc) ? acc[key] : _clone(valueAcc, false), elt);
         return acc;

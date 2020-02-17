@@ -1,5 +1,5 @@
-import _cloneRegExp from "./_cloneRegExp";
-import type from "../type";
+import _cloneRegExp from './_cloneRegExp';
+import type from '../type';
 
 /**
  * Copies an object.
@@ -12,7 +12,7 @@ import type from "../type";
  * @return {*} The copied value.
  */
 export default function _clone(value, deep, map = new Map()) {
-  //this avoids the slower switch with a quick if decision removing some milliseconds in each run.
+  // this avoids the slower switch with a quick if decision removing some milliseconds in each run.
   if (_isPrimitive(value)) {
     return value;
   }
@@ -33,13 +33,13 @@ export default function _clone(value, deep, map = new Map()) {
   };
 
   switch (type(value)) {
-    case "Object":
+    case 'Object':
       return copy({});
-    case "Array":
+    case 'Array':
       return copy([]);
-    case "Date":
+    case 'Date':
       return new Date(value.valueOf());
-    case "RegExp":
+    case 'RegExp':
       return _cloneRegExp(value);
     default:
       return value;
@@ -48,5 +48,5 @@ export default function _clone(value, deep, map = new Map()) {
 
 function _isPrimitive(param) {
   var type = typeof param;
-  return param == null || (type != "object" && type != "function");
+  return param == null || (type != 'object' && type != 'function');
 }
