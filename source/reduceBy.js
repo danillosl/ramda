@@ -51,7 +51,7 @@ var reduceBy = _curryN(
   [],
   _dispatchable([], _xreduceBy, function reduceBy(valueFn, valueAcc, keyFn, list) {
     return _reduce(
-      function (acc, elt) {
+      function(acc, elt) {
         var key = keyFn(elt);
         acc[key] = valueFn(_has(key, acc) ? acc[key] : _clone(valueAcc, false), elt);
         return acc;
